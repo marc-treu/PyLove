@@ -2,7 +2,18 @@ name: lint
 on: [push]
 jobs:
   linting:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: uv run ruff check
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Lint with Ruff
+        run: |
+          uv run ruff check src
+          uv run ruff format --check src
