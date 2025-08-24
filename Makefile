@@ -15,4 +15,4 @@ format-apply:
 	uv run ruff check --fix
 
 test:
-	uv run pytest test
+	uv run pytest tests/*
