@@ -1,4 +1,4 @@
-name: linting with ruff
+name: linting with Ruff
 on: [push]
 jobs:
   linting:
@@ -16,6 +16,6 @@ jobs:
         uses: astral-sh/setup-uv@v5
 
       - name: Lint with Ruff
-        run:
+        run: |
           uv run ruff check
           uv run ruff format --check
